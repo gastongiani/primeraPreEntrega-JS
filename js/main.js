@@ -1,26 +1,45 @@
-// Obtener la edad del usuario
-var edad = prompt("Ingresa tu edad:");
+document.getElementById('calculatorForm').addEventListener('submit', function(event) {
+  event.preventDefault();
 
-// Verificar si la edad es mayor o igual a 18
-if (edad >= 18) {
-  console.log("Eres mayor de edad. Puedes acceder al contenido.");
-} else {
-  console.log("Eres menor de edad. No puedes acceder al contenido.");
-}
+  // obtencion de los valores ingresados en el formulario
+  const operand1 = parseFloat(document.getElementById('operand1').value);
+  const operator = document.getElementById('operator').value;
+  const operand2 = parseFloat(document.getElementById('operand2').value);
 
-// Mostrar números del 1 al 10 utilizando un ciclo
-for (var i = 1; i <= 10; i++) {
-    console.log(i);
+  // Realizar cálculos
+  const resultado = calcular(operand1, operator, operand2);
+
+  // resultados en la página
+  const resultadoDiv = document.getElementById('resultado');
+  resultadoDiv.textContent = `El resultado es: ${resultado}`;
+
+  // boton de reinicio
+  const resetButton = document.getElementById('resetButton');
+  resetButton.style.display = 'block';
+});
+
+document.getElementById('resetButton').addEventListener('click', function() {
+  // Restablece el formulario y oculta los resultados
+  const resultadoDiv = document.getElementById('resultado');
+  resultadoDiv.textContent = '';
+  document.getElementById('calculatorForm').reset();
+
+  // Oculta el botón de reinicio nuevamente
+  const resetButton = document.getElementById('resetButton');
+  resetButton.style.display = 'none';
+});
+
+function calcular(operand1, operator, operand2) {
+  switch (operator) {
+    case '+':
+      return operand1 + operand2;
+    case '-':
+      return operand1 - operand2;
+    case '*':
+      return operand1 * operand2;
+    case '/':
+      return operand1 / operand2;
+    default:
+      return 'Operación no válida';
   }
-  // Generar un número aleatorio entre 1 y 100
-var numeroAleatorio = Math.floor(Math.random() * 100) + 1;
-
-// Solicitar al usuario que adivine el número
-var numeroIngresado = prompt("Adivina el número (entre 1 y 100):");
-
-// Verificar si el número ingresado es igual al número aleatorio
-if (numeroIngresado == numeroAleatorio) {
-  console.log("¡Felicitaciones! Adivinaste el número.");
-} else {
-  console.log("Lo siento, no adivinaste el número. El número era: " + numeroAleatorio);
 }
