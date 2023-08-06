@@ -1,26 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Calculadora Interactiva</title>
-  <link rel="stylesheet" href="styles/style.css">
+    <title>Carrito de Compras</title>
+    <link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
-  <div class="container">
-    <h1>Calculadora Interactiva</h1>
-    <form id="calculatorForm">
-      <input type="number" id="operand1" required>
-      <select id="operator" required>
-        <option value="+">+</option>
-        <option value="-">-</option>
-        <option value="*">*</option>
-        <option value="/">/</option>
-      </select>
-      <input type="number" id="operand2" required>
-      <button type="submit">Calcular</button>
-    </form>
-    <div id="resultado"></div>
-    <button id="resetButton" style="display: none;">Reiniciar</button>
-  </div>
-  <script src="js/main.js"></script>
+    <h1>Carrito de Compras</h1>
+    <div id="app">
+        <ul id="product-list">
+
+        </ul>
+        <div id="cart">
+            <h2>Carrito</h2>
+            <ul id="cart-items">
+              
+            </ul>
+            <p>Total: <span id="cart-total">$0</span></p>
+            <button id="checkout-btn">Realizar Compra</button>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
